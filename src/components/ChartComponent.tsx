@@ -6,7 +6,7 @@ import {
     CartesianGrid,
     Tooltip
 } from "recharts";
-import React from "react";
+import React, { ReactElement } from "react";
 
 import { IChartData, IChart } from "../interface/Chart";
 
@@ -45,7 +45,7 @@ const initialState: IChart = {
     animation: true
 };
 
-const ChartComponent = () => {
+const ChartComponent = (): ReactElement => {
 
     const {
         data,

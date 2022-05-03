@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
@@ -20,9 +20,12 @@ const initialUser = {
     avatar: 'https://i.kym-cdn.com/photos/images/original/001/506/130/373.png' // dummy image url 
 }
 
-const AddDialog = (props: any) => {
+interface IAddDialogProps {
+    addUserHandler: (x: any) => void;
+}
+
+const AddDialog: React.FC<IAddDialogProps> = ({ addUserHandler }): ReactElement => {
     const [user, setUser] = useState(initialUser);
-    const { addUserHandler } = props;
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -103,10 +106,6 @@ const AddDialog = (props: any) => {
             </Dialog>
         </>
     )
-}
-
-AddDialog.propTypes = {
-    addUserHandler: PropTypes.func.isRequired,
 }
 
 export default AddDialog;
